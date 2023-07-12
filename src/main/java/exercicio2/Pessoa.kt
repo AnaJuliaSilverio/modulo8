@@ -18,23 +18,15 @@ class Pessoa(var nome:String){
     }
     fun ajustaDataDeNascimento(dia:Int,anoNascimento:Int,mes:Int){
         dataNascimento= LocalDate.of(anoNascimento,mes,dia)
-
-            this.anoNascimento = anoNascimento
-            this.dia = dia
-            this.mes = mes
-
-
+        this.anoNascimento = anoNascimento
+        this.dia = dia
+        this.mes = mes
     }
     fun ajustaDataDeNascimento(data:LocalDate){
         dataNascimento= data
-
-            this.anoNascimento = data.year
-            this.dia = data.dayOfWeek.value
-            this.mes = data.dayOfMonth
-
-
+        this.anoNascimento = data.year
+        this.dia = data.dayOfWeek.value
+        this.mes = data.dayOfMonth
     }
-
-
 
 }
