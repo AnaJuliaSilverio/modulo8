@@ -1,5 +1,7 @@
 package exercicio3
 
+import kotlin.system.exitProcess
+
 class Aluno() {
     val turma = arrayListOf<Aluno>()
     val notasDoSemestre = arrayListOf<Double>()
@@ -28,14 +30,18 @@ class Aluno() {
     fun insereTurma(){
         while (true){
             insereNotas()
-            println("Novo cálculo (1-sim 2-não)?")
-            when(readln()){
-                "1"->continue
-                "2"->{
-                    exibirBoletins()
-                    break
+            while (true){
+                println("Novo cálculo (1-sim 2-não)?")
+                when(readln()){
+                    "1"->break
+                    "2"->{
+                        exibirBoletins()
+                        exitProcess(0)
+                    }
+                    else-> {
+                        println("ValorInvalido")
+                    }
                 }
-                else-> println("ValorInvalido")
             }
         }
     }
@@ -47,6 +53,9 @@ class Aluno() {
         println("-----------TURMA DE SIMCITY-----------")
         for(aluno in turma){
             println("Nome do aluno: ${aluno.nome}------Média:${aluno.media}")
+            for (i in aluno.notasDoSemestre.indices){
+                println("${i+1} Semestre : ${aluno.notasDoSemestre[i]} ")
+            }
             soma+=aluno.media
         }
         println("-----------ESTATÍSTICA DA TURMA-----------")
